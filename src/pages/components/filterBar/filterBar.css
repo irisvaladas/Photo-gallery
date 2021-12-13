@@ -1,0 +1,23 @@
+.filterBar {
+    height:70px;
+    display:flex;
+    justify-content:center;
+    box-shadow: 0 0 6px #a1a1a1;
+}
+
+.filterBar button {
+    margin: 15px;
+    padding: 10px;
+    border-radius: 45px;
+    background-color: white;
+    border:solid 1px #ccc; 
+    box-shadow: 0 0 4px #a1a1a1;
+}
+
+.filterBar button:hover {
+    background-color: #f6f6f6;
+}
+
+.filterBar button:active {
+    background-color: #e7e7e7;
+}
