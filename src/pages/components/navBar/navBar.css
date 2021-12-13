@@ -1,4 +1,5 @@
 .navBar {
+    z-index:2;
     position: absolute;
     display: flex;
     height: 115px;
@@ -101,8 +102,8 @@
     color:white;
     background-color: #003143 ;
     border-radius: 6px;
-    border:solid 1px #ccc; 
-    box-shadow: 0 0 4px #a1a1a1;
+    border:solid 1px #003143; 
+    box-shadow: 0 0 4px #686868;
 }
 
 .authentication button:hover {
