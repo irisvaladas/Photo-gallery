@@ -49,6 +49,7 @@ return (
           style={{ backgroundColor }}
         ></img>
       ))}
+      
     </div>
 
     <div className="slideshowDots">
@@ -64,14 +65,6 @@ return (
     </div>
       <div className="text">
         <h1>The best way to share your travel experiences with the world.</h1>
-      </div>
-      <div className="buttonsBF">
-        <button className="backButton">
-          <img src={backButton} alt="back" />
-        </button>
-        <button className="forwardButton">
-          <img src={forwardButton} alt="forward" />
-        </button>
       </div>
     </div>
   );

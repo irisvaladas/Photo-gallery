@@ -19,23 +19,29 @@
 
 
 .slideshowDots {
-    text-align: center;
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    width: 100%;
+    
+    transform: translateY(-50%);
+    bottom: 0;
   }
   
   .slideshowDot {
-    display: inline-block;
+    display: flex;
+    transform: translateY(-50%);
     height: 20px;
     width: 20px;
     border-radius: 50%;
-  
+    z-index:5;
     cursor: pointer;
     margin: 15px 7px 0px;
-  
     background-color: #c4c4c4;
   }
   
   .slideshowDot.active {
-    background-color: #6a0dad;
+    background-color: #003143;
   }
 
 
@@ -59,55 +65,3 @@
     left: 50%;
     text-shadow: 2px 2px #000000;
 }
-
-.buttonsBF {
-    position: absolute;
-    display: flex;
-    width: 100%;
-    top: 50%;
-    transform: translateY(-50%);
-    justify-content: center;
-}
-
-.backButton {
-    background-color: rgb(255, 255, 255, 0);
-    position: absolute;
-    width:30px;
-    height:30px;
-    display:flex;
-    align-items: center;
-    justify-content:center;
-    left: 20px;
-    border:none;
-    border-radius:50%;
-}
-
-.backButton:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-}
-
-.backButton:active {
-    background-color: rgba(255, 255, 255, 0.2);
-}
-
-.forwardButton {
-    background-color: rgb(255, 255, 255,0);;
-    position: absolute;
-    width:30px;
-    height:30px;
-    display:flex;
-    align-items: center;
-    justify-content:center;
-    right: 20px;
-    border:none;
-    border-radius:50%;
-}
-
-.forwardButton:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-}
-
-.forwardButton:active {
-    background-color: rgba(255, 255, 255, 0.2);
-}
-
