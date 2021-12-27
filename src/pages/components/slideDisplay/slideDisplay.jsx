@@ -7,56 +7,61 @@ import forwardButton from "../../../files/arrowButtonForward.png";
 import "./slideDisplay.css";
 
 
-  const colors = ["#0088FE", "#00C49F", "#FFBB28"];
-  const delay = 2500;
+const colors = [image1, image2, image3];
+const delay = 6000;
 
-  function SlideDisplay() {
-    const [index, setIndex] = useState(0);
-    const timeoutRef = useRef(null);
+function SlideDisplay() {
+  const [index, setIndex] = useState(0);
+  const timeoutRef = useRef(null);
 
-    function resetTimeout() {
-      if (timeoutRef.current) {
-        clearTimeout(timeoutRef.current);
-      }
+  function resetTimeout() {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
     }
+  }
 
-    useEffect(() => {
+  useEffect(() => {
+    resetTimeout();
+    timeoutRef.current = setTimeout(
+      () =>
+        setIndex((prevIndex) =>
+          prevIndex === colors.length - 1 ? 0 : prevIndex + 1
+        ),
+      delay
+    );
+    return () => {
       resetTimeout();
-      timeoutRef.current = setTimeout(
-        () =>
-          setIndex((prevIndex) =>
-            prevIndex === colors.length - 1 ? 0 : prevIndex + 1
-          ),
-        delay
-      );
-      return () => {
-        resetTimeout();
-      };
-    }, [index]);
-  
+    };
+  }, [index]);
 
-  return (
-    <div className="slide-container">
-      <div className="slider">
-        {colors.map((backgroundColor, index) => {
-          <div className="slide"
+
+return (
+<div className="slideshow">
+    <div
+      className="slideshowSlider"
+      style={{ transform: `translate3d(${-index * 100}%, 0, 0)` }}
+    >
+      {colors.map((backgroundColor, index) => (
+        <img
+          src={backgroundColor}
+          className="slide"
           key={index}
           style={{ backgroundColor }}
-        ></div>;
-        })}
-        
-      </div>
-      <div className="slideshowDots">
-        {colors.map((_, idx) => (
-          <div
-            key={idx}
-            className={`slideshowDot${index === idx ? " active" : ""}`}
-            onClick={() => {
-              setIndex(idx);
-            }}
-          ></div>
-        ))}
-      </div>
+        ></img>
+      ))}
+    </div>
+
+    <div className="slideshowDots">
+      {colors.map((_, idx) => (
+        <div
+          key={idx}
+          className={`slideshowDot${index === idx ? " active" : ""}`}
+          onClick={() => {
+            setIndex(idx);
+          }}
+        ></div>
+      ))}
+    </div>
       <div className="text">
         <h1>The best way to share your travel experiences with the world.</h1>
       </div>
