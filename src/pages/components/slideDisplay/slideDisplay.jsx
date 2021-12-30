@@ -2,8 +2,6 @@ import React, { useState, useRef, useEffect} from "react";
 import image1 from "../../../files/slideBackground.jpeg";
 import image2 from "../../../files/countryBackground.jpeg";
 import image3 from "../../../files/northernLights.jpeg";
-import backButton from "../../../files/arrowButtonBack.png";
-import forwardButton from "../../../files/arrowButtonForward.png";
 import "./slideDisplay.css";
 
 

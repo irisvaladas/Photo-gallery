@@ -19,10 +19,11 @@ const InfScrImg = () => {
     const accessKey = "e70So3cqXKFJiJY7y66YFQq1gpAzueuAp0gPUfPQ6_0";
 
     axios
-      .get(`${apiRoot}/photos/random?client_id=${accessKey}&count=${count}`)
+      .get(`${apiRoot}/search/photos?query=london&client_id=${accessKey}`)
       .then((res) => {
-        setImages([...images, ...res.data]);
+        setImages([...images, [...res.data]]);
         setIsLoaded(true);
+        console.log(res.data)
       });
   };
 
