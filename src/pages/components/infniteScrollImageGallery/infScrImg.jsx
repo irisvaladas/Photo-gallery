@@ -14,16 +14,15 @@ const InfScrImg = () => {
   const [images, setImages] = useState([]);
   const [loaded, setIsLoaded] = useState(false);
 
-  const fetchImages = (count = 10) => {
+  const fetchImages = () => {
     const apiRoot = "https://api.unsplash.com";
     const accessKey = "e70So3cqXKFJiJY7y66YFQq1gpAzueuAp0gPUfPQ6_0";
 
     axios
-      .get(`${apiRoot}/search/photos?query=london&client_id=${accessKey}`)
+      .get(`${apiRoot}/search/photos?per_page=30&query=london&client_id=${accessKey}`)
       .then((res) => {
-        setImages([...images, [...res.data]]);
+        setImages([...images, ...res.data.results]);
         setIsLoaded(true);
-        console.log(res.data)
       });
   };
 
@@ -37,7 +36,7 @@ const InfScrImg = () => {
         <div className="container">
           <InfiniteScroll
             dataLength={images}
-            next={() => fetchImages(5)}
+            next={() => fetchImages()}
             hasMore={true}
             loader={
               <img
