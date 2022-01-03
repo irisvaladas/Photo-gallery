@@ -19,7 +19,7 @@ const InfScrImg = () => {
     const accessKey = "e70So3cqXKFJiJY7y66YFQq1gpAzueuAp0gPUfPQ6_0";
 
     axios
-      .get(`${apiRoot}/search/photos?per_page=30&query=london&client_id=${accessKey}`)
+      .get(`${apiRoot}/search/photos?per_page=30&query=travel&client_id=${accessKey}`)
       .then((res) => {
         setImages([...images, ...res.data.results]);
         setIsLoaded(true);

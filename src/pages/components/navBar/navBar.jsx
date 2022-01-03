@@ -1,11 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import logo from "../../../files/logo.png";
 import searchButton from "../../../files/searchButton.png";
 import './navBar.css'
 import {Link } from "react-router-dom";
+import InfScrImg from "../infniteScrollImageGallery/infScrImg.jsx";
 
-const NavBar = () => {
+const NavBar = (props) => {
+  
+  const [photo, setPhoto] = useState("")
 
+  function handleChange(event) {
+
+  }
+  
+  function handleSubmit(event) {
+    
+  }
 
   return (
     <div className="navBar">
@@ -15,10 +25,12 @@ const NavBar = () => {
       <div className='search'>
         <div className="search__input">
         <input
+          onChange={handleChange}
           type="text"
-          placeholder="Suggested: relaxing, snowflake, marble, christmas, family, film, shiva and more."
+          placeholder="Suggested: city, beach, country site, Paris, London..."
+          name = "photo"
         />
-        <button type='summit'><img src={searchButton}/></button>
+        <button onClick={handleSubmit} type='summit'><img src={searchButton}/></button>
         </div>
       </div>
       <div className='authentication'>
