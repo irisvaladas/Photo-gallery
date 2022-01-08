@@ -1,16 +1,21 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import InfiniteScroll from 'react-infinite-scroll-component';
 import axios from 'axios';
-import './infScrImg.css'
+import './infScrImg.css';
+import {SearchContext} from '../SearchContext'
 
 const InfScrImg = () => {
+  
+  const input = useContext(SearchContext)
+  
+  console.log(input);
   
   const UnsplashImage = ({ url, key }) => (
     <div className="image-item" key={key}>
       <img src={url} />
     </div>
   );
-
+  
   const [images, setImages] = useState([]);
   const [loaded, setIsLoaded] = useState(false);
 
@@ -19,7 +24,7 @@ const InfScrImg = () => {
     const accessKey = "e70So3cqXKFJiJY7y66YFQq1gpAzueuAp0gPUfPQ6_0";
 
     axios
-      .get(`${apiRoot}/search/photos?per_page=30&query=travel&client_id=${accessKey}`)
+      .get(`${apiRoot}/search/photos?per_page=30&query=${input}&client_id=${accessKey}`)
       .then((res) => {
         setImages([...images, ...res.data.results]);
         setIsLoaded(true);
